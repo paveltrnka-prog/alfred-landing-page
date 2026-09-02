@@ -37,10 +37,12 @@
     .scroll-cue:hover{background:linear-gradient(rgba(31,14,29,.62),rgba(31,14,29,.62)) padding-box,conic-gradient(from var(--cue-angle),rgba(255,255,255,.22) 0 62%,var(--lime) 76%,rgba(255,255,255,.22) 90%) border-box;animation:cueRing 1.45s linear infinite;transform:translateY(-2px);box-shadow:0 12px 36px rgba(20,8,19,.28)}
     .scroll-cue:focus-visible{outline:3px solid var(--lime);outline-offset:4px}.scroll-cue:hover i{border-color:var(--lime);color:var(--lime)}
     @keyframes cueRing{to{--cue-angle:360deg}}
+    .preloader__mark{width:clamp(132px,16vw,245px);overflow:visible;transform:translateY(24px);opacity:0;animation:preloaderLogoIn .75s .08s cubic-bezier(.2,.8,.2,1) forwards}.preloader__mark img{width:100%;height:auto;filter:brightness(0) invert(1)}
+    @keyframes preloaderLogoIn{to{transform:translateY(0);opacity:1}}
   </style>
 </head>
 <body class="loading">
-  <div class="preloader" aria-hidden="true"><div class="preloader__mark"><span>Alfred.</span></div><div class="preloader__line"></div></div>
+  <div class="preloader" aria-hidden="true"><div class="preloader__mark"><img src="assets/alfred-logo-transparent.png" alt=""></div><div class="preloader__line"></div></div>
   <div class="progress" aria-hidden="true"></div>
   <nav class="nav" aria-label="Hlavní navigace"><a class="brand" href="#top" aria-label="Alfred by Previo"><img class="brand__logo" src="assets/alfred-logo-transparent.png" alt=""><span class="brand__by">by Previo</span></a><div class="nav__links"><a class="nav__link" href="#moznosti">Co umí</a><a class="nav__link" href="#jak">Jak funguje</a><a class="nav__link" href="#hotelier">Pro hotely</a><a class="pill" href="#start">Spustit Alfreda <span class="pill__arrow">↗</span></a></div></nav>
   <main id="top">
