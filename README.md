@@ -20,7 +20,8 @@ Potom otevřete [http://127.0.0.1:4173](http://127.0.0.1:4173).
 .
 ├── index.html                         # Kompletní stránka, CSS a JavaScript
 ├── assets/
-│   ├── alfred-arrival.webp           # Hero a příjezd do hotelu
+│   ├── alfred-hero.webp              # Hlavní hero fotografie
+│   ├── alfred-arrival.webp           # Příjezd do hotelu
 │   ├── alfred-mobile-key.webp        # Mobilní hotelový klíč
 │   └── alfred-services.webp          # Služby a objevování okolí
 ```
