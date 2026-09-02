@@ -23,7 +23,9 @@ Potom otevřete [http://127.0.0.1:4173](http://127.0.0.1:4173).
 │   ├── alfred-hero.webp              # Hlavní hero fotografie
 │   ├── alfred-arrival.webp           # Příjezd do hotelu
 │   ├── alfred-mobile-key.webp        # Mobilní hotelový klíč
-│   └── alfred-services.webp          # Služby a objevování okolí
+│   ├── alfred-services.webp          # Služby a objevování okolí
+│   ├── alfred-logo.svg               # Původní dodané logo
+│   └── alfred-logo-transparent.png   # Transparentní maska loga pro dynamické barvy
 ```
 
 ## Technické řešení
