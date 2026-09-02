@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#1236ff">
+  <meta name="theme-color" content="#673367">
   <meta name="description" content="Alfred je váš digitální hotelový průvodce. Check-in, klíč, služby i platba v jednom mobilu.">
   <title>Alfred — pobyt bez čekání</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@500;600;700;800&display=swap');
-    :root{--blue:#1236ff;--lime:#d7ff43;--ink:#0b0c10;--paper:#f5f3ed;--white:#fff;--coral:#ff664f;--line:rgba(11,12,16,.16);--pad:clamp(20px,4vw,64px);--radius:clamp(22px,3vw,42px)}
+    :root{--blue:#673367;--lime:#FBB337;--ink:#0b0c10;--paper:#f5f3ed;--white:#fff;--coral:#8a557f;--line:rgba(11,12,16,.16);--pad:clamp(20px,4vw,64px);--radius:clamp(22px,3vw,42px)}
     *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:"DM Sans",sans-serif;overflow-x:hidden}body.loading{overflow:hidden}a{color:inherit;text-decoration:none}button{font:inherit}img{display:block;width:100%}.display{font-family:"Manrope",sans-serif;letter-spacing:-.065em;line-height:.92}.eyebrow{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}.wrap{width:min(1600px,100%);margin:auto;padding-inline:var(--pad)}
     .preloader{position:fixed;inset:0;z-index:1000;background:var(--blue);color:white;display:grid;place-items:center;transition:transform .9s cubic-bezier(.8,0,.15,1);transform-origin:top}.preloader.out{transform:translateY(-102%)}.preloader__mark{font:800 clamp(48px,10vw,150px)/1 "Manrope";letter-spacing:-.09em;overflow:hidden}.preloader__mark span{display:block;transform:translateY(120%);animation:up .7s .1s cubic-bezier(.2,.8,.2,1) forwards}.preloader__line{position:absolute;bottom:0;left:0;height:5px;background:var(--lime);width:0;animation:load 1.3s ease forwards}@keyframes up{to{transform:none}}@keyframes load{to{width:100%}}
     .progress{position:fixed;left:0;top:0;height:3px;width:0;background:var(--lime);z-index:101;mix-blend-mode:difference}
@@ -26,6 +26,8 @@
     @media(max-width:520px){.brand sup{display:none}.nav .pill{font-size:11px}.hero{min-height:700px}.hero__bottom p{font-size:15px}.phone{width:68%}.door{height:145vh}.tile{min-height:420px}.tile__overlay,.tile--small{padding:24px}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}.preloader{display:none}}
     .intro,.journey,.services{padding-inline:var(--pad)}
+    .hero{background:#2a172b}.hero__media:after{background:linear-gradient(90deg,rgba(35,12,35,.82) 0%,rgba(53,23,50,.28) 58%,rgba(25,13,20,.12)),linear-gradient(0deg,rgba(25,10,24,.58),transparent 55%)}.pulse{box-shadow:0 0 0 7px rgba(251,179,55,.2)}
+    #platba .feature__media--ui{background:var(--lime)!important}#recenze .feature__media--ui{background:var(--blue)!important}.step p{color:#eaddeb}
     .hero__media img{transform:scale(1.01);transform-origin:center center;animation:heroMicroZoom 16s 2.7s ease-in-out infinite;will-change:transform}
     @keyframes heroMicroZoom{0%,100%{transform:scale(1.01)}50%{transform:scale(1.055)}}
   </style>
