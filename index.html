@@ -277,6 +277,36 @@
       .hlap__lid{box-shadow:inset 0 0 0 1.5px #3a3a3c,0 50px 90px -40px rgba(32,33,36,.45)}
     }
     @media(max-width:800px){.hero__kicker{color:var(--blue)}.hero__bottom{border-top-color:var(--line)}}
+
+    /* Hero: tečková koule za notebookem (port Orb z animation-scroll) */
+    .hero__orb{position:absolute;z-index:-1;left:50%;top:62%;width:190%;aspect-ratio:1;transform:translate(-50%,-50%);opacity:.6;pointer-events:none}
+    .hero__text{position:relative;z-index:1}
+    @media(max-width:800px){.hero__orb{width:220%;top:30%}}
+  
+    /* Hero: plovoucí barevné ikony (Fluent Emoji 3D, MIT) */
+    .hero__icons{position:absolute;inset:0;z-index:3;pointer-events:none}
+    .hico{position:absolute;left:var(--x);top:var(--y);width:var(--s);height:var(--s);margin-left:calc(var(--s)/-2);display:grid;place-items:center;border-radius:50%;background:#fff;box-shadow:0 18px 40px -18px rgba(60,30,58,.35),0 2px 6px rgba(32,33,36,.05);opacity:0;scale:.6;transition:opacity .8s,scale 1s cubic-bezier(.34,1.56,.64,1);animation:hicoFloat var(--t) ease-in-out var(--dl) infinite alternate}
+    .hico img{width:60%;height:60%;object-fit:contain}
+    .hero.icons-in .hico{opacity:1;scale:1}
+    .hero.icons-in .hico:nth-child(2){transition-delay:.08s}.hero.icons-in .hico:nth-child(3){transition-delay:.16s}.hero.icons-in .hico:nth-child(4){transition-delay:.24s}.hero.icons-in .hico:nth-child(5){transition-delay:.12s}.hero.icons-in .hico:nth-child(6){transition-delay:.2s}.hero.icons-in .hico:nth-child(7){transition-delay:.28s}.hero.icons-in .hico:nth-child(8){transition-delay:.36s}
+    @keyframes hicoFloat{0%{transform:translate(0,0) rotate(-4deg)}50%{transform:translate(10px,-16px) rotate(3deg)}100%{transform:translate(-8px,8px) rotate(-1deg)}}
+    @media(max-width:800px){
+      .hico{--s:46px!important}
+      .hico--1,.hico--2,.hico--3,.hico--4,.hico--6,.hico--7{display:none}
+      .hico--0{--x:12%!important;--y:30px!important}
+      .hico--2{--x:6%!important;--y:470px!important}
+      .hico--5{--x:88%!important;--y:30px!important}
+      .hico--7{--x:94%!important;--y:520px!important}
+    }
+    @media(prefers-reduced-motion:reduce){.hico{animation:none}}
+  
+/* tour: eased scrim + progresivní rozostření místo ostrého lineárního přechodu */
+.tour__fade{background:linear-gradient(90deg,rgba(245,243,237,0.9) 0%,rgba(245,243,237,0.86) 12%,rgba(245,243,237,0.77) 22%,rgba(245,243,237,0.63) 31%,rgba(245,243,237,0.46) 39%,rgba(245,243,237,0.3) 46%,rgba(245,243,237,0.17) 52%,rgba(245,243,237,0.08) 57%,rgba(245,243,237,0.025) 62%,rgba(245,243,237,0) 66%)}
+.tour__fade::before{content:"";position:absolute;inset:0;-webkit-backdrop-filter:blur(14px) saturate(1.05);backdrop-filter:blur(14px) saturate(1.05);-webkit-mask-image:linear-gradient(90deg,#000 0%,#000 22%,transparent 52%);mask-image:linear-gradient(90deg,#000 0%,#000 22%,transparent 52%)}
+@media(max-width:800px){
+.tour__fade{background:linear-gradient(0deg,rgba(245,243,237,0.94) 0%,rgba(245,243,237,0.9) 10%,rgba(245,243,237,0.8) 18%,rgba(245,243,237,0.64) 26%,rgba(245,243,237,0.46) 32%,rgba(245,243,237,0.28) 38%,rgba(245,243,237,0.14) 43%,rgba(245,243,237,0.05) 47%,rgba(245,243,237,0) 51%)}
+.tour__fade::before{-webkit-mask-image:linear-gradient(0deg,#000 0%,#000 20%,transparent 46%);mask-image:linear-gradient(0deg,#000 0%,#000 20%,transparent 46%)}
+}
 </style>
   </head>
 <body class="loading">
@@ -321,7 +351,7 @@
 </div>
 <div class="ad__view ad__view--key"><div class="adk"><small class="adk__k">Mobilní klíč</small><b class="adk__room">Pokoj 204</b><small class="adk__meta">3. patro · platí do Čt 9. 10., 11:00</small><button class="adk__ring" type="button" tabindex="-1" aria-label="Odemknout pokoj 204"><span class="adk__wave"></span><span class="adk__wave"></span><svg viewBox="0 0 24 24" width="54" height="54" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="15" r="4"/><path d="m11 12 8.5-8.5M16.5 6.5l2.5 2.5M14.5 8.5l2 2"/></svg></button><span class="adk__hint"><span>Přiložte telefon ke dveřím</span><em>Otevřeno ✓</em></span></div></div></div>
 <nav class="ad__tabs"><button type="button" data-tab="dash" class="on" tabindex="-1"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17.5h16M5.5 17.5a6.5 6.5 0 0 1 13 0M12 8.5V6.5M10.5 6.5h3"/></svg>Rezervace</button><button type="button" data-go="#okoli" tabindex="-1"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="8" width="16" height="12" rx="2"/><path d="M9 8V5.5h6V8"/></svg>Hotel</button><button type="button" data-tab="key" tabindex="-1"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="15" r="4"/><path d="m11 12 8.5-8.5M16.5 6.5l2.5 2.5M14.5 8.5l2 2"/></svg>Klíč</button><button type="button" data-go="#sluzby" tabindex="-1"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 11.5s-3.5-2.2-3.5-4.5a2 2 0 0 1 3.5-1.3A2 2 0 0 1 15.5 7c0 2.3-3.5 4.5-3.5 4.5z"/><path d="M3.5 15.5h3l3.5 2.5h5l4-3.5-1.5-1.5-3 1.5h-3"/></svg>Služby</button><button type="button" data-go="#okoli" tabindex="-1"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="m15 9-1.8 4.2L9 15l1.8-4.2z"/></svg>Aktivity</button></nav></div></div></div><div class="scr__glare"></div></div></div></div><div class="film__shade"></div><div class="film__kicker"><span class="pulse"></span> Večer, po dlouhé cestě</div><div class="film__beats"><p class="film__beat" data-in=".03" data-out=".2">Venku prší.<br>Za vámi dlouhá cesta.</p><p class="film__beat" data-in=".24" data-out=".44">Recepce už má<br><span>zavřeno.</span></p><p class="film__beat" data-in=".5" data-out=".7">Nevadí. Check-in<br>máte <span>hotový.</span></p><p class="film__beat" data-in=".76" data-out=".97">A klíč od pokoje?<br><span>Máte ho v ruce.</span></p></div><div class="film__cue">Scrollujte<i></i></div><div class="film__end"><img src="assets/alfred-logo-transparent.png" alt=""></div></div></section>
-    <header class="hero"><div class="hero__glow"></div><div class="hero__content wrap"><div class="hero__text"><div class="hero__kicker reveal"><span class="pulse"></span> Váš pobyt právě začíná</div><h1 class="display reveal">Míň čekání.<br><span class="accent">Víc zážitků.</span></h1><div class="hero__bottom reveal"><p>Check‑in, klíč, služby i platba. Všechno, co v hotelu potřebujete, máte rovnou v mobilu.</p><a class="scroll-cue" href="#moznosti"><i>↓</i> Objevte Alfreda</a></div></div><div class="hero__device"><div class="hlap" aria-hidden="true"><div class="hlap__lid"><div class="hlap__screen"><div class="hlap__bar"><i></i><i></i><i></i><span>alfred.previo.app</span></div><div class="hlap__view"><img class="hlap__shot" src="assets/app/desk-hotel.webp" alt=""></div></div></div><div class="hlap__base"><i></i></div></div><div class="hdev"><div class="hdev__screen"><div class="hdev__island"></div><div class="ad-fit"><div class="ad" data-view="dash"><div class="ad__status"><span>21:40</span><span class="ad__sig"><i></i><i></i><i></i><i></i></span></div>
+    <header class="hero"><div class="hero__glow"></div><div class="hero__icons" aria-hidden="true"><span class="hico hico--0" style="--x:14%;--y:150px;--s:84px;--t:11s;--dl:0s"><img src="assets/icons/luggage.webp" alt="" width="80" height="80" loading="eager"></span><span class="hico hico--1" style="--x:29%;--y:96px;--s:62px;--t:13s;--dl:-3s"><img src="assets/icons/croissant.webp" alt="" width="80" height="80" loading="eager"></span><span class="hico hico--2" style="--x:21%;--y:380px;--s:66px;--t:10s;--dl:-6s"><img src="assets/icons/key.webp" alt="" width="80" height="80" loading="eager"></span><span class="hico hico--3" style="--x:7%;--y:560px;--s:72px;--t:12s;--dl:-2s"><img src="assets/icons/bellhop_bell.webp" alt="" width="80" height="80" loading="eager"></span><span class="hico hico--4" style="--x:69%;--y:100px;--s:60px;--t:12s;--dl:-5s"><img src="assets/icons/bed.webp" alt="" width="80" height="80" loading="eager"></span><span class="hico hico--5" style="--x:84%;--y:160px;--s:78px;--t:10s;--dl:-1s"><img src="assets/icons/credit_card.webp" alt="" width="80" height="80" loading="eager"></span><span class="hico hico--6" style="--x:77%;--y:400px;--s:66px;--t:14s;--dl:-7s"><img src="assets/icons/hot_springs.webp" alt="" width="80" height="80" loading="eager"></span><span class="hico hico--7" style="--x:92%;--y:560px;--s:58px;--t:11s;--dl:-4s"><img src="assets/icons/star.webp" alt="" width="80" height="80" loading="eager"></span></div><div class="hero__content wrap"><div class="hero__text"><div class="hero__kicker reveal"><span class="pulse"></span> Váš pobyt právě začíná</div><h1 class="display reveal">Míň čekání.<br><span class="accent">Víc zážitků.</span></h1><div class="hero__bottom reveal"><p>Check‑in, klíč, služby i platba. Všechno, co v hotelu potřebujete, máte rovnou v mobilu.</p><a class="scroll-cue" href="#moznosti"><i>↓</i> Objevte Alfreda</a></div></div><div class="hero__device"><canvas class="hero__orb" aria-hidden="true"></canvas><div class="hlap" aria-hidden="true"><div class="hlap__lid"><div class="hlap__screen"><div class="hlap__bar"><i></i><i></i><i></i><span>alfred.previo.app</span></div><div class="hlap__view"><img class="hlap__shot" src="assets/app/desk-hotel.webp" alt=""></div></div></div><div class="hlap__base"><i></i></div></div><div class="hdev"><div class="hdev__screen"><div class="hdev__island"></div><div class="ad-fit"><div class="ad" data-view="dash"><div class="ad__status"><span>21:40</span><span class="ad__sig"><i></i><i></i><i></i><i></i></span></div>
 <div class="ad__scroll"><div class="ad__view ad__view--dash">
 <div class="ad__top"><span class="ad__hotel">HOTEL<b>VLTAVA</b></span><span class="ad__me"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8.5" r="3.5"/><path d="M5.5 19.5c1.2-3.3 3.6-5 6.5-5s5.3 1.7 6.5 5"/></svg></span></div>
 <div class="ad__snack"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><span class="ad__snacktxt">Termín pobytu potvrzen</span></div>
@@ -454,6 +484,34 @@
       D.forEach((d,j)=>d.addEventListener('click',()=>go(j)));const A=[...g.querySelectorAll('.tour__arrow')];A.forEach(a=>a.addEventListener('click',()=>{const n=i+ +a.dataset.d;if(n>=0&&n<C.length)go(n)}));
       pl.addEventListener('click',()=>{playing=!playing;pl.setAttribute('aria-label',playing?'Pozastavit':'Přehrát');mark()});
       new IntersectionObserver(en=>{vis=en[0].isIntersecting;mark()},{threshold:.45}).observe(tr);mark()})();
-  </script>
+  
+  /* Tečková koule (Fibonacciho sféra) za zařízením v hero */
+  (()=>{
+    const c=document.querySelector('.hero__orb'); if(!c) return;
+    const ctx=c.getContext('2d'), N=2400, still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const pts=Array.from({length:N},(_,i)=>{const y=1-i/(N-1)*2,r=Math.sqrt(1-y*y),th=i*2.399963;return{x:Math.cos(th)*r,y,z:Math.sin(th)*r}});
+    let W=0,dpr=1,t=0,last=performance.now(),raf=0,vis=true;
+    const size=()=>{dpr=Math.min(2,devicePixelRatio||1);W=Math.round(c.clientWidth*dpr);c.width=c.height=W};
+    const draw=now=>{
+      const dt=Math.min(.05,(now-last)/1000); last=now; t+=dt;
+      const R=W*.33, rot=t*.12, cr=Math.cos(rot), sr=Math.sin(rot), ct=Math.cos(.35), st=Math.sin(.35), k0=W/1400;
+      ctx.clearRect(0,0,W,W);
+      for(const p of pts){
+        const n=Math.sin(p.x*6+t*1.2)*Math.cos(p.y*5-t*.9)*Math.sin(p.z*4+t*.7), k=1+n*.035;
+        const x=p.x*cr-p.z*sr, z0=p.x*sr+p.z*cr, y=p.y*ct-z0*st, z=p.y*st+z0*ct, d=(z+1)/2;
+        ctx.fillStyle=`hsla(${302-d*6},${30+d*18}%,${70-d*36}%,${.12+d*.55})`;
+        ctx.beginPath(); ctx.arc(W/2+x*R*k,W/2+y*R*k,(.7+d*1.9)*dpr*Math.max(1,k0),0,6.2832); ctx.fill();
+      }
+      if(!still&&vis) raf=requestAnimationFrame(draw);
+    };
+    const go=()=>{cancelAnimationFrame(raf);last=performance.now();raf=requestAnimationFrame(draw)};
+    size(); go();
+    addEventListener('resize',()=>{size();go()});
+    new IntersectionObserver(([e])=>{vis=e.isIntersecting;if(vis)go()}).observe(c);
+  })();
+
+  /* Plovoucí ikony v hero: náběh při prvním zobrazení */
+  (()=>{const h=document.querySelector('.hero');if(!h)return;new IntersectionObserver((es,o)=>{if(es[0].isIntersecting){h.classList.add('icons-in');o.disconnect()}},{threshold:.25}).observe(h)})();
+</script>
 </body>
 </html>

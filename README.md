@@ -43,6 +43,7 @@ Potom otevřete [http://127.0.0.1:4173](http://127.0.0.1:4173).
 │   ├── alfred-mobile-key.webp        # Mobilní hotelový klíč
 │   ├── alfred-services.webp          # Služby a objevování okolí
 │   ├── app/                          # Obrazovky z návrhu aplikace (mobil + desktop `desk-*`)
+│   ├── icons/                        # Barevné 3D ikonky v hero (Fluent Emoji, Microsoft, licence MIT)
 │   ├── alfred.svg                    # Postavička Alfreda (loader)
 │   ├── alfred-logo.svg               # Původní dodané logo
 │   └── alfred-logo-transparent.png   # Transparentní maska loga pro dynamické barvy
@@ -54,7 +55,7 @@ Potom otevřete [http://127.0.0.1:4173](http://127.0.0.1:4173).
 - responzivní layout pro desktop a mobil,
 - loader — postavička Alfreda se skládá z částic podle postupu načítání, pak vstupní choreografie,
 - úvodní filmový příběh „Příjezd“ (`.film`) — snímky filmu se přetáčejí scrollem na canvasu, do displeje telefonu se přes CSS `matrix3d` (homografie z naměřených rohů displeje) promítá živé HTML UI Alfreda a na konci kamera „vplave“ do obrazovky a předá stránku hero sekci; při `prefers-reduced-motion` se sekce skryje,
-- hero s interaktivní replikou aplikace Alfred v telefonu — úkoly před příjezdem se postupně odškrtávají (nebo je odklikne návštěvník), po dokončení se odemkne pokoj a PIN, záložka Klíč otevře mobilní klíč; telefon se natáčí za kurzorem; za ním se otevře víko notebooku s desktopovou verzí Alfreda z návrhu,
+- hero s interaktivní replikou aplikace Alfred v telefonu — úkoly před příjezdem se postupně odškrtávají (nebo je odklikne návštěvník), po dokončení se odemkne pokoj a PIN, záložka Klíč otevře mobilní klíč; telefon se natáčí za kurzorem; za ním se otevře víko notebooku s desktopovou verzí Alfreda z návrhu; za notebookem se pomalu otáčí tečkovaná koule (canvas) a kolem nadpisu volně plují barevné ikonky v bílých kruzích,
 - sekce `.still` — fotografie recepce se při scrollu rozevře z ořezu (clip-path) na celou obrazovku,
 - kinetické nadpisy — slova hlavních nadpisů vyjíždějí postupně zespodu,
 - sekce „Přijeďte. Ubytujte se. Odemkněte. Užijte si.“ (`.mf`) — světlý „jízdní řád“ jednoho příjezdu: připnutá na scroll, slova se postupně dopisují, u každého řádku naskočí čas a poznámka, co Alfred zařídil, a na konci závěrečná věta,
