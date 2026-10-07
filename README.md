@@ -37,6 +37,7 @@ Potom otevřete [http://127.0.0.1:4173](http://127.0.0.1:4173).
 .
 ├── index.html                         # Kompletní stránka, CSS a JavaScript
 ├── assets/
+│   ├── film/lg, film/sm/             # Snímky úvodního filmu (135× WebP, 1600 a 900 px)
 │   ├── alfred-hero.webp              # Hlavní hero fotografie
 │   ├── alfred-arrival.webp           # Příjezd do hotelu
 │   ├── alfred-mobile-key.webp        # Mobilní hotelový klíč
@@ -50,6 +51,7 @@ Potom otevřete [http://127.0.0.1:4173](http://127.0.0.1:4173).
 - čisté HTML, CSS a JavaScript bez frameworku,
 - responzivní layout pro desktop a mobil,
 - preloader a vstupní choreografie,
+- úvodní filmový příběh „Příjezd“ (`.film`) — snímky filmu se přetáčejí scrollem na canvasu, do displeje telefonu se přes CSS `matrix3d` (homografie z naměřených rohů displeje) promítá živé HTML UI Alfreda a na konci kamera „vplave“ do obrazovky a předá stránku hero sekci; při `prefers-reduced-motion` se sekce skryje,
 - scroll progress, reveal a parallax efekty,
 - nekonečně smyčkovaný ticker pás (`.ticker`) — track se za běhu klonuje podle šířky viewportu, takže animace nikdy nevyjede do prázdna,
 - scroll-scrubbed odhalování manifesto claimu (`.manifesto__phrase`) — jednotlivé fráze se postupně rozsvěcují (opacity + blur) podle pozice scrollu, stejný princip jako pinovaná `.door` sekce,
