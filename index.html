@@ -123,30 +123,27 @@
     @media(prefers-reduced-motion:reduce){.hero__device,.hero .ad__view--dash>*{opacity:1;transform:none}.kw>span{transform:none}.still{height:auto}.still__sticky{position:relative;height:90svh}.still__frame{clip-path:none}.still__frame img{transform:none}.still__copy p{opacity:1;transform:none}}
   </style>
 <style>
-    .mf{min-height:0;height:420vh;display:block;padding:0;overflow:visible;background:#141118}
+    .mf{min-height:0;height:400vh;display:block;padding:0;overflow:visible;background:var(--paper);color:var(--ink)}
     .mf__sticky{position:sticky;top:0;width:100%;height:100svh;overflow:hidden;display:grid;place-items:center;padding:0 var(--pad)}
-    .mf__glow{position:absolute;width:70vmax;aspect-ratio:1;left:50%;top:50%;border-radius:50%;background:radial-gradient(circle,rgba(111,47,106,.75),rgba(111,47,106,0) 62%);transform:translate(-50%,-50%) translate(var(--gx,0),var(--gy,0)) scale(var(--gs,.5));opacity:var(--go,.5);filter:blur(30px);pointer-events:none;transition:background 1.2s}
-    .mf.is-end .mf__glow{background:radial-gradient(circle,rgba(251,179,55,.42),rgba(111,47,106,.35) 40%,rgba(111,47,106,0) 64%)}
-    .mf__stack{position:relative;width:100%;max-width:1350px}
-    .mf__line{display:flex;align-items:center;gap:clamp(14px,2vw,32px);font:600 clamp(44px,8.4vw,132px)/1 "Manrope";letter-spacing:-.07em;transform:translateX(calc((1 - var(--a,0)) * -3vw));opacity:calc(.28 + var(--a,0) * .72);transition:transform .2s linear}
-    .mf__word{position:relative;color:#2f2b35;white-space:nowrap;padding-bottom:.06em}
-    .mf__word:after{content:attr(data-t);position:absolute;left:0;top:0;color:#fff;clip-path:inset(-10% calc(100% - var(--f,0%)) -10% 0)}
-    .mf__line--lime .mf__word:after{color:var(--lime)}
-    .mf__chip{display:inline-flex;align-items:center;gap:9px;padding:10px 16px 10px 10px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);font:600 clamp(12px,1.05vw,16px)/1 Inter,sans-serif;letter-spacing:0;color:#fff;white-space:nowrap;opacity:0;transform:translateY(14px) scale(.9);transition:opacity .45s,transform .7s cubic-bezier(.2,1.4,.3,1)}
-    .mf__chip i{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:#6f2f6a;color:#fff}
-    .mf__line--lime .mf__chip i{background:var(--lime);color:#2a172b}
-    .mf__line.is-done .mf__chip{opacity:1;transform:none}
-    .mf__end{margin:clamp(26px,4vh,48px) 0 0;font:600 clamp(24px,3vw,46px)/1.1 "Manrope";letter-spacing:-.04em;color:rgba(255,255,255,.9)}
-    .mf__end span{display:inline-block;opacity:0;transform:translateY(60%);filter:blur(8px);transition:opacity .7s,transform .9s cubic-bezier(.16,1,.3,1),filter .7s}
-    .mf.is-end .mf__end span{opacity:1;transform:none;filter:none}
+    .mf__stack{width:100%;max-width:1350px}
+    .mf__head{display:flex;justify-content:space-between;margin:0;padding-bottom:14px;border-bottom:1px solid var(--ink);font:600 12px/1 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+    .mf__line{position:relative;display:grid;grid-template-columns:clamp(70px,9vw,140px) auto 1fr;align-items:baseline;gap:clamp(12px,2vw,32px);padding:clamp(6px,1.2vh,14px) 0 clamp(8px,1.4vh,16px)}
+    .mf__line:after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--ink);transform-origin:left;transform:scaleX(var(--a,0));opacity:.22}
+    .mf__time{font:500 clamp(13px,1.1vw,16px)/1 Inter,sans-serif;font-variant-numeric:tabular-nums;color:rgba(11,12,16,.35);transition:color .4s}
+    .mf__line.is-done .mf__time{color:var(--ink)}
+    .mf__word{position:relative;font:600 clamp(44px,7.6vw,122px)/1 "Manrope";letter-spacing:-.065em;color:rgba(11,12,16,.1);white-space:nowrap;padding-bottom:.06em}
+    .mf__word:after{content:attr(data-t);position:absolute;left:0;top:0;color:var(--ink);clip-path:inset(-10% calc(100% - var(--f,0%)) -10% 0)}
+    .mf__line--last .mf__word:after{color:var(--blue)}
+    .mf__note{justify-self:end;max-width:340px;text-align:right;font:500 clamp(13px,1.05vw,16px)/1.4 Inter,sans-serif;color:rgba(11,12,16,.6);opacity:0;transform:translateY(8px);transition:opacity .5s,transform .7s cubic-bezier(.16,1,.3,1)}
+    .mf__line.is-done .mf__note{opacity:1;transform:none}
+    .mf__end{margin:clamp(24px,4vh,44px) 0 0;font:600 clamp(24px,3vw,46px)/1.1 "Manrope";letter-spacing:-.04em}
+    .mf__end span{display:inline-block;opacity:0;transform:translateY(40%);transition:opacity .6s,transform .9s cubic-bezier(.16,1,.3,1)}
+    .mf.is-end .mf__end span{opacity:1;transform:none}
     .mf.is-end .mf__end span:nth-child(2){transition-delay:.08s}.mf.is-end .mf__end span:nth-child(3){transition-delay:.16s}.mf.is-end .mf__end span:nth-child(4){transition-delay:.26s}
-    .mf__alf{color:var(--lime)}
-    .mf__rail{position:absolute;right:var(--pad);top:50%;transform:translateY(-50%);display:flex;flex-direction:column;align-items:center;gap:14px;font:600 12px/1 Inter,sans-serif;color:rgba(255,255,255,.4)}
-    .mf__num{color:#fff}
-    .mf__track{width:2px;height:120px;background:rgba(255,255,255,.14);border-radius:2px;overflow:hidden}
-    .mf__bar{display:block;width:100%;height:100%;background:var(--lime);transform-origin:top;transform:scaleY(var(--p,0))}
-    @media(max-width:800px){.mf{height:380vh}.mf__line{flex-direction:column;align-items:flex-start;gap:10px;margin-bottom:10px}.mf__line .mf__chip{font-size:12px}.mf__rail{display:none}}
-    @media(prefers-reduced-motion:reduce){.mf{height:auto}.mf__sticky{position:relative;height:auto;min-height:100svh;padding-block:120px}.mf__line{--a:1;--f:100%}.mf__chip,.mf__end span{opacity:1;transform:none;filter:none}}
+    .mf__alf{color:var(--blue);background:linear-gradient(var(--lime),var(--lime)) left 88%/0 .16em no-repeat;transition:background-size .8s .7s cubic-bezier(.16,1,.3,1)!important}
+    .mf.is-end .mf__alf{background-size:100% .16em}
+    @media(max-width:800px){.mf{height:360vh}.mf__line{grid-template-columns:auto 1fr;row-gap:6px}.mf__word{grid-column:1/-1;grid-row:2}.mf__note{grid-row:1;grid-column:2;max-width:none;font-size:12px}}
+    @media(prefers-reduced-motion:reduce){.mf{height:auto}.mf__sticky{position:relative;height:auto;min-height:100svh;padding-block:120px}.mf__line{--a:1;--f:100%}.mf__note,.mf__end span{opacity:1;transform:none}.mf__alf{background-size:100% .16em}}
     </style>
   </head>
 <body class="loading">
@@ -189,7 +186,7 @@
     <div class="ticker" aria-hidden="true"><div class="ticker__track"><span>CHECK‑IN BEZ RECEPCE</span><b>✦</b><span>KLÍČ V MOBILU</span><b>✦</b><span>SLUŽBY NA JEDNO KLIKNUTÍ</span><b>✦</b></div></div>
     <section class="intro wrap"><div class="intro__head"><div class="intro__side reveal"><span class="eyebrow">Digitální concierge</span><p>Alfred odstraní z pobytu zbytečné zastávky. Žádná instalace aplikace. Jen odkaz, pár kliknutí a můžete rovnou bydlet.</p><a href="#moznosti" class="pill pill--dark">Poznat Alfreda <span class="pill__arrow">↓</span></a></div><h2 class="display reveal">Hotel, který je připravený <span>dřív než vy.</span></h2></div><div class="stats"><div class="stat reveal"><strong data-count="24">0</strong><span>hodin denně po ruce</span></div><div class="stat reveal"><strong data-count="1">0</strong><span>mobil místo karet a papírů</span></div><div class="stat reveal"><strong data-count="0">0</strong><span>minut ve frontě na recepci</span></div></div></section>
     <section class="still" aria-label="Recepce"><div class="still__sticky"><span class="still__label">Zatímco ostatní čekají ve frontě</span><figure class="still__frame"><img src="assets/alfred-hero.webp" alt="Hosté v klidu u recepce hotelu" loading="lazy"></figure><div class="still__copy"><h2 class="display">Fronta zmizela.<br><span>Úsměvy zůstaly.</span></h2><p>Papíry vyřídí Alfred ještě před příjezdem. U recepce pak zbývá jen to hezké: přivítání a tip na večeři.</p></div></div></section>
-    <section class="manifesto mf" aria-label="Přijeďte. Ubytujte se. Odemkněte. Užijte si. A zbytek nechte na Alfredovi."><div class="mf__sticky"><div class="mf__glow"></div><div class="mf__rail" aria-hidden="true"><b class="mf__num">01</b><span class="mf__track"><span class="mf__bar"></span></span><b>04</b></div><div class="mf__stack"><div class="mf__line" style="--i:0"><span class="mf__word" data-t="Přijeďte.">Přijeďte.</span><span class="mf__chip"><i><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i>Check-in hotový online</span></div><div class="mf__line" style="--i:1"><span class="mf__word" data-t="Ubytujte se.">Ubytujte se.</span><span class="mf__chip"><i><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18V7M3 14h18v4M21 14v-3a3 3 0 0 0-3-3h-7v6"/></svg></i>Pokoj 204 · 2. patro</span></div><div class="mf__line" style="--i:2"><span class="mf__word" data-t="Odemkněte.">Odemkněte.</span><span class="mf__chip"><i><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M17 6l3 3"/></svg></i>Dveře odemčeny</span></div><div class="mf__line mf__line--lime" style="--i:3"><span class="mf__word" data-t="Užijte si.">Užijte si.</span><span class="mf__chip"><i><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-5 0-8-3-8-8 4 0 8 3 8 8zM12 21c5 0 8-3 8-8-4 0-8 3-8 8zM12 13c-2-3-2-7 0-10 2 3 2 7 0 10z"/></svg></i>Wellness v 19:00 rezervováno</span></div><p class="mf__end"><span>A zbytek</span> <span>nechte</span> <span>na</span> <span class="mf__alf">Alfredovi.</span></p></div></div></section>
+    <section class="manifesto mf" aria-label="Přijeďte. Ubytujte se. Odemkněte. Užijte si. A zbytek nechte na Alfredovi."><div class="mf__sticky"><div class="mf__stack"><p class="mf__head"><span>Úterý 7. října</span><span>Hotel Vltava, Praha</span></p><div class="mf__line"><time class="mf__time">14:52</time><span class="mf__word" data-t="Přijeďte.">Přijeďte.</span><span class="mf__note">Check-in vyřízený online, cestou z nádraží</span></div><div class="mf__line"><time class="mf__time">14:58</time><span class="mf__word" data-t="Ubytujte se.">Ubytujte se.</span><span class="mf__note">Pokoj 204, druhé patro, výtah vlevo</span></div><div class="mf__line"><time class="mf__time">15:01</time><span class="mf__word" data-t="Odemkněte.">Odemkněte.</span><span class="mf__note">Telefonem, bez karty a bez fronty</span></div><div class="mf__line mf__line--last"><time class="mf__time">15:30</time><span class="mf__word" data-t="Užijte si.">Užijte si.</span><span class="mf__note">Wellness v 19:00 je zarezervované</span></div><p class="mf__end"><span>A zbytek</span> <span>nechte</span> <span>na</span> <span class="mf__alf">Alfredovi.</span></p></div></div></section>
     <section class="journey wrap" id="moznosti">
       <div class="journey__title"><h2 class="display reveal">Celý pobyt.<br>Jeden Alfred.</h2><p class="reveal">Od prvního „dobrý den“ až po poslední hvězdičku. Vše hladce, bezpečně a bez stahování.</p></div>
       <div class="journey__layout"><aside class="journey__nav" aria-label="Funkce Alfreda"><a href="#checkin" class="active"><span>Check‑in / out</span><span>01</span></a><a href="#klic"><span>Otevřít dveře</span><span>02</span></a><a href="#okoli"><span>Hotel a okolí</span><span>03</span></a><a href="#sluzby"><span>Služby</span><span>04</span></a><a href="#platba"><span>Platba</span><span>05</span></a><a href="#recenze"><span>Recenze</span><span>06</span></a></aside>
@@ -274,12 +271,10 @@
     addEventListener('resize',measure);measure();requestAnimationFrame(loop)})();
   </script>
 <script>
-    (()=>{const mf=document.querySelector('.mf');if(!mf)return;const L=[...mf.querySelectorAll('.mf__line')],num=mf.querySelector('.mf__num'),st=mf.querySelector('.mf__sticky'),c=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));let raf=0;
-    function u(){raf=0;const r=mf.getBoundingClientRect(),p=c(-r.top/(r.height-innerHeight)),n=L.length,seg=.78/n;let act=0;
-    L.forEach((l,i)=>{const lp=c((p-.04-i*seg)/seg);l.style.setProperty('--f',(lp*100).toFixed(1)+'%');l.style.setProperty('--a',c(lp*1.6).toFixed(3));l.classList.toggle('is-done',lp>=.98);if(lp>0)act=i});
-    num.textContent='0'+(act+1);st.style.setProperty('--p',c(p/.82).toFixed(3));st.style.setProperty('--gs',(.5+p*.9).toFixed(3));st.style.setProperty('--go',(.35+p*.5).toFixed(3));mf.classList.toggle('is-end',p>.84)}
-    addEventListener('scroll',()=>{raf||(raf=requestAnimationFrame(u))},{passive:true});addEventListener('resize',u);u();
-    st.addEventListener('pointermove',e=>{const b=st.getBoundingClientRect();st.style.setProperty('--gx',((e.clientX-b.left)/b.width-.5)*14+'vw');st.style.setProperty('--gy',((e.clientY-b.top)/b.height-.5)*14+'vh')})})();
+    (()=>{const mf=document.querySelector('.mf');if(!mf)return;const L=[...mf.querySelectorAll('.mf__line')],c=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));let raf=0;
+    function u(){raf=0;const r=mf.getBoundingClientRect(),p=c(-r.top/(r.height-innerHeight)),seg=.78/L.length;
+    L.forEach((l,i)=>{const lp=c((p-.04-i*seg)/seg);l.style.setProperty('--f',(lp*100).toFixed(1)+'%');l.style.setProperty('--a',lp.toFixed(3));l.classList.toggle('is-done',lp>=.98)});mf.classList.toggle('is-end',p>.84)}
+    addEventListener('scroll',()=>{raf||(raf=requestAnimationFrame(u))},{passive:true});addEventListener('resize',u);u()})();
     </script>
   </body>
 </html>

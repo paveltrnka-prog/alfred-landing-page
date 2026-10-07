@@ -55,7 +55,7 @@ Potom otevřete [http://127.0.0.1:4173](http://127.0.0.1:4173).
 - hero s interaktivní replikou aplikace Alfred v telefonu — úkoly před příjezdem se postupně odškrtávají (nebo je odklikne návštěvník), po dokončení se odemkne pokoj a PIN, záložka Klíč otevře mobilní klíč; telefon se natáčí za kurzorem,
 - sekce `.still` — fotografie recepce se při scrollu rozevře z ořezu (clip-path) na celou obrazovku,
 - kinetické nadpisy — slova hlavních nadpisů vyjíždějí postupně zespodu,
-- tmavá sekce „Přijeďte. Ubytujte se. Odemkněte. Užijte si.“ (`.mf`) — připnutá na scroll, slova se postupně vyplňují světlem, u každého vyskočí štítek s tím, co Alfred zařídil, a na konci se objeví závěrečná věta,
+- sekce „Přijeďte. Ubytujte se. Odemkněte. Užijte si.“ (`.mf`) — světlý „jízdní řád“ jednoho příjezdu: připnutá na scroll, slova se postupně dopisují, u každého řádku naskočí čas a poznámka, co Alfred zařídil, a na konci závěrečná věta,
 - scroll progress, reveal a parallax efekty,
 - nekonečně smyčkovaný ticker pás (`.ticker`) — track se za běhu klonuje podle šířky viewportu, takže animace nikdy nevyjede do prázdna,
 - scroll-scrubbed odhalování manifesto claimu (`.manifesto__phrase`) — jednotlivé fráze se postupně rozsvěcují (opacity + blur) podle pozice scrollu, stejný princip jako pinovaná `.door` sekce,
