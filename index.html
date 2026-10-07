@@ -254,7 +254,30 @@
     .tour__arrow svg{width:20px;height:20px;fill:none;stroke:var(--ink);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
     @media(max-width:760px){.tour__arrows{display:none}}
     @media(prefers-reduced-motion:reduce){.tour__scene{height:auto}.tour__sticky{position:relative}.tour__dots button.is-on i{animation:none}}
-    </style>
+    
+    /* Hero: světlé, středová kompozice (nadpis nahoře, zařízení pod ním) */
+    .hero{background:var(--paper);color:var(--ink)}
+    .hero__glow,.hero__tip{display:none}
+    .hero__kicker{color:var(--blue)}
+    .hero h1 .accent{color:var(--blue)}
+    .scroll-cue{color:var(--ink);background:linear-gradient(#fff,#fff) padding-box,linear-gradient(var(--line),var(--line)) border-box;backdrop-filter:none}
+    .scroll-cue i{border-color:var(--line)}
+    .scroll-cue:hover{background:linear-gradient(#fff,#fff) padding-box,conic-gradient(from var(--cue-angle),var(--line) 0 62%,var(--blue) 76%,var(--line) 90%) border-box;box-shadow:0 12px 30px rgba(32,33,36,.1)}
+    .scroll-cue:hover i{border-color:var(--blue);color:var(--blue)}
+    @media(min-width:801px){
+      .hero__content{grid-template-columns:1fr;justify-items:center;align-items:start;text-align:center;gap:clamp(40px,6vh,72px);padding-top:clamp(124px,17vh,176px);padding-bottom:0}
+      .hero__text{display:flex;flex-direction:column;align-items:center}
+      .hero__kicker{justify-content:center}
+      .hero h1{font-size:clamp(56px,7.4vw,124px);max-width:none}
+      .hero__bottom{flex-direction:column;align-items:center;gap:26px;margin-top:26px;padding-top:0;border-top:0}
+      .hero__bottom p{max-width:520px;color:#515151}
+      .hero__device{width:min(1060px,84vw);height:auto;justify-self:center;margin-bottom:-14vh}
+      .hlap{position:relative;left:0;top:0;width:100%}
+      .hero__device .hdev{right:-4%;bottom:-3%;height:84%}
+      .hlap__lid{box-shadow:inset 0 0 0 1.5px #3a3a3c,0 50px 90px -40px rgba(32,33,36,.45)}
+    }
+    @media(max-width:800px){.hero__kicker{color:var(--blue)}.hero__bottom{border-top-color:var(--line)}}
+</style>
   </head>
 <body class="loading">
   <div class="preloader" aria-hidden="true"><canvas class="preloader__fig"></canvas><div class="preloader__bar"><i></i></div></div>
@@ -343,7 +366,7 @@
     const reveals=document.querySelectorAll('.reveal:not(.hero .reveal)');const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');observer.unobserve(e.target)}}),{threshold:.14});reveals.forEach(el=>observer.observe(el));
         const counts=document.querySelectorAll('[data-count]');const countObserver=new IntersectionObserver(entries=>entries.forEach(e=>{if(!e.isIntersecting)return;const el=e.target,target=+el.dataset.count,start=performance.now(),duration=900;function tick(now){const p=Math.min(1,(now-start)/duration),v=Math.round(target*(1-Math.pow(1-p,3)));el.textContent=v+(target===24?'/7':target===1?'×':'');if(p<1)requestAnimationFrame(tick)}requestAnimationFrame(tick);countObserver.unobserve(el)}));counts.forEach(el=>countObserver.observe(el));
     const ticker=document.querySelector('.ticker'),tickerTrack=ticker.querySelector('.ticker__track');function fillTicker(){const w=tickerTrack.getBoundingClientRect().width;if(!w)return;ticker.style.setProperty('--ticker-duration',(w/90)+'s');while(ticker.children.length*w<innerWidth+w+1)ticker.appendChild(tickerTrack.cloneNode(true));const tracks=[...ticker.children];tracks.forEach(t=>t.style.animation='none');void ticker.offsetWidth;tracks.forEach(t=>t.style.animation='')}fillTicker();document.fonts.ready.then(fillTicker);addEventListener('resize',fillTicker);
-    let ticking=false;function update(){const y=scrollY,max=document.documentElement.scrollHeight-innerHeight;document.querySelector('.progress').style.width=(y/max*100)+'%';document.querySelector('.nav').classList.toggle('scrolled',y>document.querySelector('.hero').offsetTop+innerHeight*.72);document.querySelectorAll('[data-image-parallax]').forEach(img=>{const r=img.parentElement.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight)img.style.setProperty('--parallax',((r.top-innerHeight*.5)*-.045)+'px')});const door=document.querySelector('.door'),headline=document.querySelector('.door__headline');if(door){const r=door.getBoundingClientRect(),p=Math.max(0,Math.min(1,-r.top/(r.height-innerHeight)));headline.style.transform=`scale(${.82+p*.18})`;headline.style.opacity=.35+p*.65}ticking=false}addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(update);ticking=true}},{passive:true});update();
+    let ticking=false;function update(){const y=scrollY,max=document.documentElement.scrollHeight-innerHeight;document.querySelector('.progress').style.width=(y/max*100)+'%';document.querySelector('.nav').classList.toggle('scrolled',y>document.querySelector('.hero').offsetTop-902);document.querySelectorAll('[data-image-parallax]').forEach(img=>{const r=img.parentElement.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight)img.style.setProperty('--parallax',((r.top-innerHeight*.5)*-.045)+'px')});const door=document.querySelector('.door'),headline=document.querySelector('.door__headline');if(door){const r=door.getBoundingClientRect(),p=Math.max(0,Math.min(1,-r.top/(r.height-innerHeight)));headline.style.transform=`scale(${.82+p*.18})`;headline.style.opacity=.35+p*.65}ticking=false}addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(update);ticking=true}},{passive:true});update();
   </script>
   <script>
     (()=>{const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches,clamp=v=>Math.max(0,Math.min(1,v)),ease=t=>1-Math.pow(1-t,3);
