@@ -331,6 +331,8 @@
     @media(prefers-reduced-motion:reduce){.fin-alf img{transform:none;opacity:1;transition:none;animation:none!important}}
     /* mobil: displej ve filmu v 1× (s dpr 3 je stejně ostrý); 3× vrstvy 900×2070 iOS nezvládne a stránku zabije */
     @media (pointer:coarse),(max-width:800px){.film__screen{width:300px;height:690px;border-radius:26px}.film__screen>.scr{zoom:1}}
+    /* mobil: telefon v hero na střed a koule až pod textem, za telefonem */
+    @media(max-width:800px){.hero__device{width:100%;margin-bottom:0}.hero__device .hdev{margin-inline:auto}.hero__orb{width:200%;top:58%}}
 </style>
   </head>
 <body class="loading">
